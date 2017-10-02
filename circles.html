@@ -6,6 +6,9 @@
 	<!-- Load the Paper.js library -->
 	<script type="text/javascript" src="paper-full.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.js"></script>
+	<script type="text/javascript" src="key_sound_mappings.js">
+
+	</script>
 	<!-- Define inlined PaperScript associate it with myCanvas -->
 	<script type="text/paperscript" canvas="myCanvas">
 
@@ -16,35 +19,53 @@
 		src: ["sounds/clay.mp3"]
 	});
 	var circles = [];
+	var rectangles = [];
 
 	function onKeyDown(event) {
 
-	// When a key is pressed, set the content of the text item:
 		var maxPoint = new Point(view.size.width, view.size.height);
 		var randomPoint = Point.random();
 		var point = maxPoint * randomPoint;
 		var circle = new Path.Circle(point, 50);
 
 
-		if (event.key === 'a') {
-			sound.play();
-			circle.fillColor = "blue";
-			circles.push(circle);
-		} else {
-			sound2.play();
-			circle.fillColor = "red";
-			circles.push(circle);
-		}
-	}
+		randomPoint = Point.random();
 
+		var point2 = maxPoint * randomPoint;
+		var rectangle = new Path.Rectangle(point2, 50);
+
+		var sound = new Howl({
+			src: sounds[event.key]
+		});
+
+		sound.play();
+
+		// if (event.key === 'a') {
+		// 	sound.play();
+		// 	circle.fillColor = "blue";
+		// 	circles.push(circle);
+		// 	rectangle.fillColor = "white";
+		// 	rectangles.push(rectangle);
+		// } else {
+		// 	sound2.play();
+		// 	circle.fillColor = "red";
+		// 	rectangle.fillColor = "tan";
+		// 	circles.push(circle);
+		// 	rectangles.push(rectangle);
+		// }
+	}
 
 	function onFrame(event) {
 		for (var i = 0; i < circles.length; i++) {
 			circles[i].fillColor.hue += 1;
 			circles[i].scale(.9);
 		}
-	}
 
+		for (var j = 0; j < rectangles.length; j++) {
+			rectangles[j].rotate(3);
+			rectangles[j].scale(.9);
+		}
+	}
 
 
 </script>
