@@ -13,6 +13,9 @@ In ClickBeat, users will be able to:
 
 ### Wireframes
 
+![wireframes](https://github.com/PriyaG88/click_beat/blob/master/wireframes/Entry%20Screen.png)
+![wireframes](https://github.com/PriyaG88/click_beat/blob/master/wireframes/Mid%20Keystroke.png)
+
 ### Architecture and Technologies
 
 This project will be implemented with the following technologies:
