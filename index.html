@@ -65,33 +65,27 @@
 		var through = createPoint();
 		var to = createPoint();
 		var path = new Path.Arc(from, through, to);
-		path.strokeColor = '#5C5552';
+		path.strokeColor = '#FFFFFF';
 		return path;
 	}
 
+	function createArrow() {
+		var path = new Path();
+		path.strokeColor = 'black';
+		path.add(new Point(createPoint(), 90));
+		path.add(new Point(90, 40));
+		path.add(new Point(createPoint(), 90));
+		return path;
+	}
 
-
-	function createArc2() {
-		radius = 50;
-		position = [70, 70];
-		// Create circle
-		circle = Path.Circle([0, 0], radius)
-		circle.fillColor = "red"
-		circle.position += position
-
-		// Arc vars
-		var from = [0, -radius]
-		var to = [0, radius]
-		var via1 = [radius, 0]
-
-		// Create arc 1
-		arc = Path.Arc(from, via1, to)
-		arc.fillColor = "blue"
-		arc.closed = true;
-		arc.position += position;
-		arc.pivot = arc.bounds.leftCenter;
-		var res = circle.exclude(arc);
-
+	function createBackground(string) {
+		return function() {
+			var maxPoint = new Point(view.size.width, view.size.height);
+			var rectangle = new Rectangle(new Point(0, 0), maxPoint);
+			var path = new Path.Rectangle(rectangle);
+			path.fillColor = string;
+			return path;
+		};
 	}
 
 	var shapes = {
@@ -102,6 +96,16 @@
 		e: createEllipse,
 		f: createStar,
 		g: createArc,
+		h: createArrow,
+		i: createBackground('#DECBB7'),
+		j: createBackground('#8F857D'),
+		k: createBackground('#5C5552'),
+		l: createBackground('#433633'),
+		m: createBackground('#6E0D25'),
+		n: createBackground('#774E24'),
+		o: createBackground('#6A381F'),
+		p: createBackground('#AA5042'),
+		q: createBackground('#1D1A05'),
 
 	};
 
@@ -119,7 +123,7 @@
 		if (shapesLogger) {
 			for (var i = 0; i < shapesLogger.length; i++) {
 				shapesLogger[i].rotate(3);
-				shapesLogger[i].scale(.9);
+				shapesLogger[i].scale(.95);
 			}
 		}
 	}
@@ -127,7 +131,6 @@
 </script>
 </head>
 <body>
-	<script type="text/javascript" src="bundle.js" charset="utf-8"></script>
 	<canvas id="myCanvas" resize></canvas>
 </body>
 </html>
