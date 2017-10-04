@@ -1,0 +1,24 @@
+{
+  "name": "click_beat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PriyaG88/click_beat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PriyaG88/click_beat/issues"
+  },
+  "homepage": "https://github.com/PriyaG88/click_beat#proposal",
+  "dependencies": {
+    "paper": "^0.11.4",
+    "webpack": "^3.6.0"
+  }
+}

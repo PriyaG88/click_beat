@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="circles.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
 
 	<!-- Load the Paper.js library -->
 	<script type="text/javascript" src="paper-full.js"></script>
@@ -11,6 +11,7 @@
 	<!-- Define inlined PaperScript associate it with myCanvas -->
 	<script type="text/paperscript" canvas="myCanvas">
 
+//shape logic
 	var shapesLogger = [];
 
 	function createPoint() {
@@ -20,32 +21,32 @@
 	}
 
 	function createDecagon() {
-	  var decagon = new Path.RegularPolygon(createPoint(), 250, 100);
+	  var decagon = new Path.RegularPolygon(createPoint(), 300, 200);
 	  decagon.fillColor = '#8F857D';
 	  return decagon;
 	}
 
 	function createCircle() {
-		var circle = new Path.Circle(createPoint(), 150);
+		var circle = new Path.Circle(createPoint(), 300);
 		circle.fillColor = '#DECBB7';
 		return circle;
 	}
 
 	function createTriangle() {
-		var triangle = new Path.RegularPolygon(createPoint(), 3, 150);
+		var triangle = new Path.RegularPolygon(createPoint(), 3, 300);
 		triangle.fillColor = '#8F857D';
 		return triangle;
 	}
 
 	function createRectangle() {
-		var rectangle = new Rectangle(new Point(50, 50), new Point(300, 200));
+		var rectangle = new Rectangle(new Point(100, 100), new Point(300, 200));
 		var path = new Path.Rectangle(rectangle);
 		path.fillColor = '#5C5552';
 		return path;
 	}
 
 	function createEllipse() {
-		var rectangle = new Rectangle(new Point(20, 20), new Size(200, 100));
+		var rectangle = new Rectangle(new Point(20, 20), new Size(300, 200));
 		var path = new Path.Ellipse(rectangle);
 		path.fillColor = '#433633';
 		return path;
@@ -66,12 +67,14 @@
 		var to = createPoint();
 		var path = new Path.Arc(from, through, to);
 		path.strokeColor = '#FFFFFF';
+		path.strokeWidth = 10;
 		return path;
 	}
 
 	function createArrow() {
 		var path = new Path();
 		path.strokeColor = 'black';
+		path.strokeWidth = 5;
 		path.add(new Point(createPoint(), 90));
 		path.add(new Point(90, 40));
 		path.add(new Point(createPoint(), 90));
@@ -107,6 +110,7 @@
 		p: createBackground('#AA5042'),
 		q: createBackground('#1D1A05'),
 
+
 	};
 
 	function onKeyDown(event) {
@@ -123,7 +127,7 @@
 		if (shapesLogger) {
 			for (var i = 0; i < shapesLogger.length; i++) {
 				shapesLogger[i].rotate(3);
-				shapesLogger[i].scale(.95);
+				shapesLogger[i].scale(.9);
 			}
 		}
 	}
