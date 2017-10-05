@@ -39,14 +39,14 @@
 	}
 
 	function createRectangle() {
-		var rectangle = new Rectangle(new Point(100, 100), new Point(300, 200));
+		var rectangle = new Rectangle(new Point(100, 100), new Point(350, 500));
 		var path = new Path.Rectangle(rectangle);
 		path.fillColor = '#5C5552';
 		return path;
 	}
 
 	function createEllipse() {
-		var rectangle = new Rectangle(new Point(20, 20), new Size(300, 200));
+		var rectangle = new Rectangle(createPoint(), new Size(300, 200));
 		var path = new Path.Ellipse(rectangle);
 		path.fillColor = '#433633';
 		return path;
@@ -81,6 +81,69 @@
 		return path;
 	}
 
+	function createLine() {
+		var path = new Path();
+		path.strokeColor = 'black';
+		path.strokeWidth = 5;
+		path.add(createPoint());
+		path.add(createPoint());
+		return path;
+	}
+
+	function createSemiCircle() {
+		var semiCircle = new Path.Circle(createPoint(), 300);
+		semiCircle.strokeColor = '#1C3144';
+		semiCircle.fillColor = '#1C3144'
+		semiCircle.removeSegment(0);
+		return semiCircle;
+	}
+
+	function createZigZag() {
+		var path = new Path();
+		path.strokeColor = 'black';
+		path.add(new Point(40, 90));
+		path.add(new Point(90, 40));
+		path.add(new Point(140, 90));
+		path.add(new Point(190, 40));
+		path.add(new Point(240, 90));
+		path.add(new Point(290, 40));
+		path.add(new Point(340, 90));
+		path.strokeColor = '#020402'
+		path.strokeWidth = 5;
+		return path;
+	}
+
+	function createCircles() {
+		var circlePath = new Path.Circle(createPoint(), 200);
+		circlePath.strokeColor = 'black';
+		circlePath.fillColor = '#772F1A';
+
+		var clones = 30;
+		var angle = 360 / clones;
+
+		for (var i = 0; i < clones; i++) {
+			var clonedPath = circlePath.clone();
+			clonedPath.rotate(angle * i, circlePath.bounds.topLeft);
+			shapesLogger.push(clonedPath);
+		}
+		return circlePath;
+	}
+
+	function createTarget() {
+		var circlePath = new Path.Circle(createPoint(), 300);
+		circlePath.style = {
+		fillColor: '#92817A'
+		};
+		// Make a copy of the path and set its stroke color to red:
+		var copy = circlePath.clone();
+		copy.fillColor = '#F7F0F5';
+
+		// Scale the copy by 50%:
+		copy.scale(0.5);
+		shapesLogger.push(copy);
+		return circlePath;
+	}
+
 	function createBackground(string) {
 		return function() {
 			var maxPoint = new Point(view.size.width, view.size.height);
@@ -89,6 +152,10 @@
 			path.fillColor = string;
 			return path;
 		};
+	}
+
+	function createRectangles() {
+		
 	}
 
 	var shapes = {
@@ -109,7 +176,12 @@
 		o: createBackground('#6A381F'),
 		p: createBackground('#AA5042'),
 		q: createBackground('#1D1A05'),
-
+		r: createLine,
+		s: createSemiCircle,
+		t: createZigZag,
+		u: createCircles,
+		v: createTarget,
+		w: createRectangles,
 
 	};
 
@@ -124,11 +196,9 @@
 	}
 
 	function onFrame(event) {
-		if (shapesLogger) {
-			for (var i = 0; i < shapesLogger.length; i++) {
-				shapesLogger[i].rotate(3);
-				shapesLogger[i].scale(.9);
-			}
+		for (var i = 0; i < shapesLogger.length; i++) {
+			shapesLogger[i].rotate(3);
+			shapesLogger[i].scale(.85);
 		}
 	}
 
