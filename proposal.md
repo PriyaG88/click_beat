@@ -33,17 +33,17 @@ This project will be implemented with the following technologies:
 
 **Day 1**: Mapping
 
-- [ ] Map each key to unique sound
-- [ ] Map each key to unique shape
+- [x] Map each key to unique sound
+- [x] Map each key to unique shape
 
 **Day 2**: Animations
 
-- [ ] Focus on learning paper.js to render animations per shape
-- [ ] Update each key to render shape and animation
+- [x] Focus on learning paper.js to render animations per shape
+- [x] Update each key to render shape and animation
 
 **Day 3**: Animations Pt 2
 
-- [ ] Continue animation rendering
+- [x] Continue animation rendering
 - [ ] Create simple instruction banner that populates on user visit and disappears on inital keystroke - 'Press a key, create       a sound'
 
 **Day 4**: Styling
