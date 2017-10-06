@@ -1,5 +1,4 @@
 var shapesLogger = [];
-var isRecording = false;
 
 var shapes = {
   a: createDecagon,
@@ -193,7 +192,6 @@ function createArrows() {
   myPath.add(new Point(90, 40));
   myPath.add(new Point(140, 90));
   return myPath;
-
 }
 
 function createDiamond() {
@@ -204,12 +202,6 @@ function createDiamond() {
   path.add(new Point(0, view.size.height / 2), new Point(view.size.width / 2, view.size.height));
   path.add(new Point(view.size.width /2, view.size.height), new Point(view.size.width, view.size.height /2));
   return path;
-}
-
-function clearShapesLogger() {
-  shapesLogger = [];
-  isRecording = !isRecording;
-  startTimer();
 }
 
 function onKeyDown(event) {
