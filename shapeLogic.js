@@ -217,12 +217,15 @@ function onKeyDown(event) {
     stopTimer();
     shapesLogger.push(findElapsedTime());
   }
-  var sound = new Howl({
-    src: sounds[event.key]
-  });
-  sound.play();
-  var shape = shapes[event.key]();
-  shapesLogger.push(shape);
+  else if (sounds[event.key]) {
+    var sound = new Howl({
+      src: sounds[event.key]
+    });
+    sound.play();
+    var shape = shapes[event.key]();
+    shapesLogger.push(shape);
+  }
+
 }
 
 function onKeyUp(event) {
