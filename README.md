@@ -2,7 +2,7 @@
 
 [Live Demo](https://click-beat.herokuapp.com/)
 
-ClickBeat (inspired by [Patatap](http://patatap.com/) is an interactive audio-visualization application.
+ClickBeat (inspired by [Patatap](http://patatap.com/)) is an interactive audio-visualization application.
 
 Technologies used:
 
