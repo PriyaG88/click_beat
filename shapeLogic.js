@@ -208,7 +208,7 @@ function createDiamond() {
 
 function clearShapesLogger() {
   shapesLogger = [];
-  !isRecording;
+  isRecording = !isRecording;
   startTimer();
 }
 
