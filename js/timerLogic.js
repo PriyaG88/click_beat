@@ -4,7 +4,6 @@ let endTime;
 const startTimer = () => {
   startTime = new Date().getSeconds();
   startTime += new Date().getMinutes() * 60;
-
 };
 
 const stopTimer = () => {
