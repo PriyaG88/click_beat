@@ -205,11 +205,7 @@ function createDiamond() {
 }
 
 function onKeyDown(event) {
-  if (isRecording) {
-    stopTimer();
-    shapesLogger.push(findElapsedTime());
-  }
-  else if (sounds[event.key]) {
+  if (sounds[event.key]) {
     var sound = new Howl({
       src: sounds[event.key]
     });
@@ -217,12 +213,8 @@ function onKeyDown(event) {
     var shape = shapes[event.key]();
     shapesLogger.push(shape);
   }
-
 }
 
-function onKeyUp(event) {
-  startTimer();
-}
 
 function onFrame(event) {
   for (var i = 0; i < shapesLogger.length; i++) {
