@@ -15,3 +15,33 @@ canvas {
   height: 100%;
   background: #F7F0F5;
 }
+
+/* Modal styling */
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: #f4f4f4;
+  padding: 20%;
+}
+
+.modal-content p {
+  color: orange;
+  font-size: 40px;
+  text-align: center;
+}
+
+.close-btn {
+  float: right;
+  font-size: 30px;
+}
+
+.close-btn:hover {
+  cursor: pointer;
+}
