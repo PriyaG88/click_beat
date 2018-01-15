@@ -3,26 +3,27 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
-	<script type="text/javascript" src="./js/paper-full.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.js"></script>
-	<script type="text/javascript" src="./js/keySoundMappings.js"></script>
-	<script type="text/javascript" src="./js/timerLogic.js"></script>
-	<script type="text/paperscript" src="./js/shapeLogic.js" canvas="myCanvas"></script>
-	<script type="text/javascript" src="./js/player.js"></script>
-
-	<!-- Define inlined PaperScript associate it with myCanvas -->
-	<script type="text/paperscript" canvas="myCanvas"></script>
 	<title>ClickBeat</title>
 </head>
 <body>
 	<h1>ClickBeat</h1>
+	<div id="modal" class="modal">
+		<div class="modal-content">
+			<p>Press a key, create a sound.</p>
+		</div>
+	</div>
 
-	<!-- <button type="button" name="button">Play</button>
-	<button onClick="clearShapesLogger()" type="button" name="button">Record</button>
-	<button onClick="stopTimer()" type="button" name="button">Stop</button> -->
 	<canvas id="myCanvas" resize></canvas>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript">
+	<script type="text/javascript" src="./js/paper-full.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.js"></script>
+	<script type="text/javascript" src="./js/keySoundMappings.js"></script>
+	<script type="text/paperscript" src="./js/shapeLogic.js" canvas="myCanvas"></script>
+	<script type="text/paperscript" canvas="myCanvas"></script>
+	<script>
+  document.addEventListener("keydown", function(event) {
+    var modal = document.getElementById('modal');
+		modal.style.display = "none";
+  });
 </script>
 </body>
 </html>
